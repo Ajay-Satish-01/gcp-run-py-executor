@@ -185,7 +185,7 @@ gcloud run services describe python-executor \
 
 
 ```bash
-curl -X POST https://python-executor-XXXXXXXXXX-uc.a.run.app/execute \
+curl -X POST https://gcp-run-py-executor-XXXXXXX.us-XXX.run.app/execute \
   -H "Content-Type: application/json" \
   -d '{
     "script": "def main():\n    import pandas as pd\n    import numpy as np\n    \n    print(\"Executing on Google Cloud Run!\")\n    \n    data = np.array([1, 2, 3, 4, 5])\n    result = {\n        \"platform\": \"Google Cloud Run\",\n        \"sum\": int(np.sum(data)),\n        \"mean\": float(np.mean(data)),\n        \"library_versions\": {\n            \"pandas\": pd.__version__,\n            \"numpy\": np.__version__\n        }\n    }\n    return result"
