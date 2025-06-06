@@ -1,0 +1,30 @@
+{
+    "basic_hello": {
+        "description": "Simple hello world script",
+        "script": "def main():\n    return {\"message\": \"Hello World!\", \"status\": \"success\"}"
+    },
+    "data_processing": {
+        "description": "Data processing with pandas",
+        "script": "def main():\n    import pandas as pd\n    import numpy as np\n    \n    # Create sample data\n    data = pd.DataFrame({\"values\": [1, 2, 3, 4, 5]})\n    mean_val = data[\"values\"].mean()\n    \n    print(\"Processing data...\")\n    \n    return {\n        \"mean\": mean_val,\n        \"count\": len(data),\n        \"sum\": int(data[\"values\"].sum()),\n        \"data_type\": \"pandas_dataframe\"\n    }"
+    },
+    "numpy_operations": {
+        "description": "NumPy mathematical operations",
+        "script": "def main():\n    import numpy as np\n    \n    arr = np.array([1, 2, 3, 4, 5])\n    \n    print(f\"Working with array: {arr}\")\n    \n    return {\n        \"array\": arr.tolist(),\n        \"mean\": float(np.mean(arr)),\n        \"std\": float(np.std(arr)),\n        \"sum\": int(np.sum(arr)),\n        \"shape\": arr.shape\n    }"
+    },
+    "file_system_check": {
+        "description": "Safe file system operations",
+        "script": "def main():\n    import os\n    \n    current_dir = os.getcwd()\n    files = os.listdir(\".\")\n    \n    print(f\"Current directory: {current_dir}\")\n    print(f\"Found {len(files)} files\")\n    \n    return {\n        \"directory\": current_dir,\n        \"file_count\": len(files),\n        \"available_files\": files[:5],  # Limit to first 5 files\n        \"environment\": os.environ.get(\"ENV\", \"unknown\")\n    }"
+    },
+    "json_processing": {
+        "description": "JSON data manipulation",
+        "script": "def main():\n    import json\n    \n    sample_data = {\n        \"users\": [\n            {\"name\": \"Alice\", \"age\": 30},\n            {\"name\": \"Bob\", \"age\": 25},\n            {\"name\": \"Charlie\", \"age\": 35}\n        ]\n    }\n    \n    print(\"Processing JSON data...\")\n    \n    # Calculate average age\n    ages = [user[\"age\"] for user in sample_data[\"users\"]]\n    avg_age = sum(ages) / len(ages)\n    \n    return {\n        \"total_users\": len(sample_data[\"users\"]),\n        \"average_age\": avg_age,\n        \"users\": sample_data[\"users\"],\n        \"data_serialized\": json.dumps(sample_data)\n    }"
+    },
+    "error_example": {
+        "description": "Example script that will cause an error (for testing error handling)",
+        "script": "def main():\n    # This will cause a division by zero error\n    result = 1 / 0\n    return {\"result\": result}"
+    },
+    "no_main_function": {
+        "description": "Example script without main function (for testing validation)",
+        "script": "print(\"This script has no main function\")\nx = 1 + 1"
+    }
+}
